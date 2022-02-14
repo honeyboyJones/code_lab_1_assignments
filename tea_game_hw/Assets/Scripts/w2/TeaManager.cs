@@ -7,7 +7,7 @@ using TMPro;
 public class TeaManager : MonoBehaviour
 {
     public int score = 0;
-    int highscore = 0;
+    //int highscore = 0;
 
     //begining of singleton pattern
     //had to make public, not sure if correct but it works now
