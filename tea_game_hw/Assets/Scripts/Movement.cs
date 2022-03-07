@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     public float speed = 2f; //speed of movement
     public CharacterController controller; //references the character controller
+    //public Rigidbody rigidbody;
     
 
     //called once per frame
@@ -23,6 +24,6 @@ public class Movement : MonoBehaviour
 
         //uses character controller's move function using the Vector3 move * speed
         //* Time.deltaTime, making it framerate independant
-        controller.Move(move * speed * Time.deltaTime);
+        //controller.Move(move * speed * Time.deltaTime);
     }
 }
