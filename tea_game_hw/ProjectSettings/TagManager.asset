@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tea
   - Terrain
+  - Ice
   layers:
   - Default
   - TransparentFX

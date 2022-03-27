@@ -21,6 +21,10 @@ public class TeaZone : MonoBehaviour
     //called if certain colliders interact
     void OnTriggerEnter(Collider sachet)
     {
+        if(sachet.gameObject.tag == "Ice")
+        {
+            print("ICE ICE BABY");
+        }
         if(sachet.gameObject.tag == "Tea") //if a tea tagged item enters
         {
             //update UI with the tea manager
