@@ -21,17 +21,23 @@ public class MovementState : MonoBehaviour
 
     State currentState; //keeps track of the current state
 
-    //state bools, might be unnecessary
+    //state bools
     bool walking;
     bool running;
     bool jumping;
-    bool canJump;
+    bool canJump = true;
+    bool isGrounded;
 
     //called at the beginning
     void Start()
     {
         //get the rigidbody
         rBody = GetComponent<Rigidbody>();
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        isGrounded = true;
     }
     
     //called once per frame
@@ -44,12 +50,13 @@ public class MovementState : MonoBehaviour
 
         //in update, check for running and jumping independent of state
         running = (Input.GetKey(KeyCode.LeftShift) && Input.GetAxis("Vertical") > 0.9);
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            jumping = true;
+            //jumping = true;
             Jump();
             //currentState = State.Jumping;
             TransitionState(State.Jumping);
+            isGrounded = false;
         }
         else
         {
@@ -102,10 +109,11 @@ public class MovementState : MonoBehaviour
         {
             currentState = State.Walking;
         }
-        if(jumping && canJump)
-        {
-            Jump();
-        }
+        // if(jumping && canJump)
+        // {
+        //     Jump();
+        // }
+
         //here is for getting desired direction with velocity
         else
         {
@@ -130,11 +138,11 @@ public class MovementState : MonoBehaviour
         }
     }
 
-    //heres jumping
+    //here is jumping
     void Jump()
     {
         //if walking and can jump
-        if(currentState == State.Walking && jumping)
+        if(currentState == State.Walking && canJump)
         {
             print("trying to jump");
             currentState = State.Jumping;
@@ -143,6 +151,16 @@ public class MovementState : MonoBehaviour
             //and max being infinity (for safe measure)
             float upForce = Mathf.Clamp(jumpSpeed - rBody.velocity.y, 0, Mathf.Infinity);
             rBody.AddForce(new Vector3(0, upForce, 0), ForceMode.VelocityChange);
+
+            //StartCoroutine(jumpCooldownCoroutine(.5f));
         }
     }
+
+    //cooldown to prevent forever jumping
+    // IEnumerator jumpCooldownCoroutine(float time)
+    // {
+    //     canJump = false;
+    //     yield return new WaitForSeconds(time);
+    //     canJump = true;
+    // }
 }

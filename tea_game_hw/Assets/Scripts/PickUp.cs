@@ -63,18 +63,18 @@ public class PickUp : MonoBehaviour
                 item.transform.position = objectPos;
             }
             //if the item is being held and the space bar is pressed
-            if(Input.GetKeyDown("space"))
-            {
-                //sets holding to false, dropping the item
-                isHolding = false;
+            // if(Input.GetKeyDown("space"))
+            // {
+            //     //sets holding to false, dropping the item
+            //     isHolding = false;
 
-                //saves the item's position from the position it is in, unparents item from the temp
-                //parent, turns gravity back on, and uses the saved position to set the item's position
-                objectPos = item.transform.position;
-                item.transform.SetParent(null);
-                item.GetComponent<Rigidbody>().useGravity = true;
-                item.transform.position = objectPos;
-            }
+            //     //saves the item's position from the position it is in, unparents item from the temp
+            //     //parent, turns gravity back on, and uses the saved position to set the item's position
+            //     objectPos = item.transform.position;
+            //     item.transform.SetParent(null);
+            //     item.GetComponent<Rigidbody>().useGravity = true;
+            //     item.transform.position = objectPos;
+            // }
         }
     }
 

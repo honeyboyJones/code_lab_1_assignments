@@ -7,6 +7,8 @@ using TMPro;
 public class TeaManager : MonoBehaviour
 {
     public int score = 0;
+    public int iceScore = 0;
+    public int sugarScore = 0;
     //int highscore = 0;
 
     //begining of singleton pattern
@@ -41,6 +43,15 @@ public class TeaManager : MonoBehaviour
     public void AddPoint()
     {
         score += 1;
-        //scoreText.text = score.ToString() + " POINTS";
+    }
+
+    public void AddIcePoint()
+    {
+        iceScore += 1;
+    }
+
+    public void AddSugarPoint()
+    {
+        sugarScore += 1;
     }
 }

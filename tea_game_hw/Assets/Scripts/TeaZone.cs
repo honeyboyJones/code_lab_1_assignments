@@ -10,6 +10,9 @@ public class TeaZone : MonoBehaviour
     public TMP_Text teaText; //access the TMP tea text box
     public TMP_Text highScore; //access the TMP tea text box
 
+    public TMP_Text iceText;
+    public TMP_Text sugarText;
+
 
     //sets the highscore so that it is visible from the beginning
     void Start()
@@ -24,7 +27,25 @@ public class TeaZone : MonoBehaviour
         if(sachet.gameObject.tag == "Ice")
         {
             print("ICE ICE BABY");
+            TeaManager.instance.AddIcePoint();
+
+            if(TeaManager.instance.iceScore > 1)
+            {
+                iceText.text = "YOU'RE BALANCING OUT THE TEMPERATURE NICELY";
+            }
         }
+
+        if(sachet.gameObject.tag == "Sugar")
+        {
+            print("SWEET");
+            TeaManager.instance.AddSugarPoint();
+
+            if(TeaManager.instance.sugarScore > 1)
+            {
+                sugarText.text = "YOU'RE SWEETENING THE TEA JUST RIGHT";
+            }
+        }
+
         if(sachet.gameObject.tag == "Tea") //if a tea tagged item enters
         {
             //update UI with the tea manager
