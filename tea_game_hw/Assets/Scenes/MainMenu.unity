@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 1630222072}
   - component: {fileID: 1630222071}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
 
     SPACE to jump/double jump
 
-    G to create platform
+    F to create platform
 
     E
     to grab item

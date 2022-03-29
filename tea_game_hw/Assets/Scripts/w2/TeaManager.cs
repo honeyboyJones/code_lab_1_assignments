@@ -45,13 +45,25 @@ public class TeaManager : MonoBehaviour
         score += 1;
     }
 
+    //for adding ice points, at 3, display message and increase overall score by 5
     public void AddIcePoint()
     {
         iceScore += 1;
+
+        if(iceScore == 3)
+        {
+            score += 5;
+        }
     }
 
+    //for adding ice points, at 3, display message and increase overall score by 10
     public void AddSugarPoint()
     {
         sugarScore += 1;
+
+        if(sugarScore == 3)
+        {
+            score += 10;
+        }
     }
 }

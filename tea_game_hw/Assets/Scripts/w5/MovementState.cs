@@ -6,7 +6,7 @@ public class MovementState : MonoBehaviour
 {
     public float walkSpeed = 2f; //speed of walking
     public float runSpeed = 4f; //speed of running
-    public float groundAcceleration = 10f; //???
+    public float groundAcceleration = 10f; //speed of movement while grounded
     public float jumpSpeed = 5f; //speed of jump
 
     Rigidbody rBody; //for gathering rigidbody
@@ -35,6 +35,7 @@ public class MovementState : MonoBehaviour
         rBody = GetComponent<Rigidbody>();
     }
 
+    //if the player is colliding with the ground, set grounded to true
     void OnCollisionStay(Collision other)
     {
         isGrounded = true;
@@ -56,6 +57,8 @@ public class MovementState : MonoBehaviour
             Jump();
             //currentState = State.Jumping;
             TransitionState(State.Jumping);
+
+            //no longer grounded, so cant jump again
             isGrounded = false;
         }
         else
@@ -63,6 +66,7 @@ public class MovementState : MonoBehaviour
             TransitionState(State.Walking);
         }
 
+        //if running, use runSpeed, otherwise use walkSpeed
         if(currentState == State.Walking)
         {
             Walk(direction, running ? runSpeed : walkSpeed, groundAcceleration);
@@ -156,7 +160,7 @@ public class MovementState : MonoBehaviour
         }
     }
 
-    //cooldown to prevent forever jumping
+    //cooldown to prevent forever jumping, not going to use because it doesnt solve the problem
     // IEnumerator jumpCooldownCoroutine(float time)
     // {
     //     canJump = false;

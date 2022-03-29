@@ -10,8 +10,8 @@ public class TeaZone : MonoBehaviour
     public TMP_Text teaText; //access the TMP tea text box
     public TMP_Text highScore; //access the TMP tea text box
 
-    public TMP_Text iceText;
-    public TMP_Text sugarText;
+    public TMP_Text iceText; //access the TMP tea text box
+    public TMP_Text sugarText; //access the TMP tea text box
 
 
     //sets the highscore so that it is visible from the beginning
@@ -21,26 +21,28 @@ public class TeaZone : MonoBehaviour
         highScore.text = "THE HIGHEST OF SCORES IS " + PlayerPrefs.GetInt("highscore", 0).ToString();
     }
 
-    //called if certain colliders interact
+    //called if certain tagged colliders interact, namely the Ice, Sugar, and Tea
     void OnTriggerEnter(Collider sachet)
     {
-        if(sachet.gameObject.tag == "Ice")
+        if(sachet.gameObject.tag == "Ice") //if an ice tagged item enters
         {
             print("ICE ICE BABY");
             TeaManager.instance.AddIcePoint();
 
-            if(TeaManager.instance.iceScore > 1)
+            //update UI with the tea manager
+            if(TeaManager.instance.iceScore > 2)
             {
                 iceText.text = "YOU'RE BALANCING OUT THE TEMPERATURE NICELY";
             }
         }
 
-        if(sachet.gameObject.tag == "Sugar")
+        if(sachet.gameObject.tag == "Sugar") //if a sugar tagged item enters
         {
             print("SWEET");
             TeaManager.instance.AddSugarPoint();
 
-            if(TeaManager.instance.sugarScore > 1)
+            //update UI with the tea manager
+            if(TeaManager.instance.sugarScore > 2)
             {
                 sugarText.text = "YOU'RE SWEETENING THE TEA JUST RIGHT";
             }

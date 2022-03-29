@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.761911, g: 0.7857202, b: 0.73050785, a: 1}
+  m_IndirectSpecularColor: {r: 0.7619175, g: 0.7857204, b: 0.73050946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5899,6 +5899,7 @@ GameObject:
   - component: {fileID: 1390943074}
   - component: {fileID: 1390943075}
   - component: {fileID: 1390943076}
+  - component: {fileID: 1390943077}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -6012,10 +6013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40cd1a28f4d84727bd133d4fd74b333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 6
-  runSpeed: 8
+  walkSpeed: 8
+  runSpeed: 10
   groundAcceleration: 10
-  jumpSpeed: 6
+  jumpSpeed: 8
 --- !u!114 &1390943076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6030,6 +6031,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1390943069}
   offset: 3
+--- !u!114 &1390943077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390943069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0509c0063d549e6858649cdb6bb0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
 --- !u!1 &1391878926
 GameObject:
   m_ObjectHideFlags: 0
