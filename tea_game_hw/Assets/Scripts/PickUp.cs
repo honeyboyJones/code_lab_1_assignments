@@ -43,7 +43,7 @@ public class PickUp : MonoBehaviour
 
             //turns off gravity for the item and turns on detect collisions
             item.GetComponent<Rigidbody>().useGravity = false;
-            item.GetComponent<Rigidbody>().detectCollisions = true;
+            item.GetComponent<Rigidbody>().detectCollisions = false; //used to be true!!!!
 
             item.transform.position = theDest.position;
 
@@ -57,11 +57,16 @@ public class PickUp : MonoBehaviour
 
                 //saves the item's position from the position it is in, unparents item from the temp
                 //parent, turns gravity back on, and uses the saved position to set the item's position
+                //also turns collisions back on
                 objectPos = item.transform.position;
                 item.transform.SetParent(null);
                 item.GetComponent<Rigidbody>().useGravity = true;
+                item.GetComponent<Rigidbody>().detectCollisions = true;
                 item.transform.position = objectPos;
             }
+
+            //no longer, because it messes with jumping
+
             //if the item is being held and the space bar is pressed
             // if(Input.GetKeyDown("space"))
             // {
