@@ -35,8 +35,8 @@ public class CameraRaycast : MonoBehaviour
         //if the ray hits something, get and print the name of that thing
         if(Physics.SphereCast(eyePosition, sphereRadius, dir, out hitter))
         {
-            print("HIT SOMETHING");
-            print(hitter.collider.gameObject.name);
+            //print("HIT SOMETHING");
+            //print(hitter.collider.gameObject.name);
 
             //if the ray hits something and the mouse button is pressed on an object tagged butt
             if(Input.GetMouseButton(0) && hitter.collider.gameObject.tag == "butt" && heldObj == null)

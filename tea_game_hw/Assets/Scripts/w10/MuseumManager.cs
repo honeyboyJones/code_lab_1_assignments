@@ -10,6 +10,12 @@ public class MuseumManager : MonoBehaviour
     public int score = 0;
     public TMP_Text scoreText;
 
+    public MeshRenderer giantOne;
+    public MeshRenderer giantTwo;
+    public MeshRenderer giantThree;
+
+    public GameObject walls;
+
     //begining of singleton pattern
     public static MuseumManager instance;
     public static MuseumManager GetInstance()
@@ -37,10 +43,35 @@ public class MuseumManager : MonoBehaviour
         }
     }
 
+    //called once per frame
+    void Update()
+    {
+        //as the score increases, render the large versions of the statues floating above the plane
+        if(score == 1)
+        {
+            giantOne.enabled = true;
+        }
+        if(score == 2)
+        {
+            giantTwo.enabled = true;
+        }
+        if(score == 3)
+        {
+            giantThree.enabled = true;
+            MoveWalls();
+        }
+    }
+
     //for adding points to the score
     public void AddPoint()
     {
         score += 1;
         scoreText.text = score.ToString();
+    }
+
+    //for disappearing the walls
+    public void MoveWalls()
+    {
+        Destroy(walls);
     }
 }
