@@ -58,7 +58,7 @@ public class MuseumManager : MonoBehaviour
         if(score == 3)
         {
             giantThree.enabled = true;
-            MoveWalls();
+            //MoveWalls();
         }
     }
 
