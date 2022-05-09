@@ -1,0 +1,30 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 25.01.2017 14:50:05
+
+newmtl salome
+	Ns 0.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka H:\sketchfab\MNK\MNK_II_rz_83_Rzezba_Salome\03_publikacja\reday2\sketchfab\meshlab\source.jpg
+	map_Kd H:\sketchfab\MNK\MNK_II_rz_83_Rzezba_Salome\03_publikacja\reday2\sketchfab\meshlab\source.jpg
+
+newmtl schody
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5500 0.5500 0.5500
+	Kd 0.5500 0.5500 0.5500
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka H:\sketchfab\MNK\MNK_II_rz_83_Rzezba_Salome\03_publikacja\reday2\sketchfab\meshlab\schody2.bmp
+	map_Kd H:\sketchfab\MNK\MNK_II_rz_83_Rzezba_Salome\03_publikacja\reday2\sketchfab\meshlab\schody2.bmp

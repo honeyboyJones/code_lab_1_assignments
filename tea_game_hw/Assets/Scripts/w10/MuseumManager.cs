@@ -9,12 +9,16 @@ public class MuseumManager : MonoBehaviour
     //references
     public int score = 0;
     public TMP_Text scoreText;
+    public TMP_Text messageText;
 
     public MeshRenderer giantOne;
     public MeshRenderer giantTwo;
     public MeshRenderer giantThree;
 
     public GameObject walls;
+
+    public NPCController NPC;
+    //public GameObject safeZone;
 
     //begining of singleton pattern
     public static MuseumManager instance;
@@ -50,6 +54,8 @@ public class MuseumManager : MonoBehaviour
         if(score == 1)
         {
             giantOne.enabled = true;
+            NPC.ActivateGeorge();
+            print("CHASING");
         }
         if(score == 2)
         {
@@ -73,5 +79,17 @@ public class MuseumManager : MonoBehaviour
     public void MoveWalls()
     {
         Destroy(walls);
+    }
+
+    public void Safe()
+    {
+        NPC.DeactivateGeorge();
+        messageText.text = "YOU WIN";
+    }
+
+    public void Caught()
+    {
+        NPC.DeactivateGeorge();
+        messageText.text = "YOU LOSE";
     }
 }
