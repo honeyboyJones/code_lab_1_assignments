@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //FROM CLASS, NOT USING IN THIS BUILD
     [SerializeField] float moveSpeed = 20f;
 
     Vector3 getInput;

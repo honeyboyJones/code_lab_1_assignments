@@ -13,6 +13,7 @@ public class MuseumManager : MonoBehaviour
 
     public MeshRenderer giantOne;
     public MeshRenderer giantTwo;
+    public MeshRenderer giantTwo2;
     public MeshRenderer giantThree;
 
     public GameObject walls;
@@ -51,6 +52,7 @@ public class MuseumManager : MonoBehaviour
     void Update()
     {
         //as the score increases, render the large versions of the statues floating above the plane
+        //after the first butt is touched, set george loose to chase the player
         if(score == 1)
         {
             giantOne.enabled = true;
@@ -60,6 +62,7 @@ public class MuseumManager : MonoBehaviour
         if(score == 2)
         {
             giantTwo.enabled = true;
+            giantTwo2.enabled = true;
         }
         if(score == 3)
         {
@@ -75,18 +78,20 @@ public class MuseumManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    //for disappearing the walls
+    //for disappearing the walls, no longer used
     public void MoveWalls()
     {
         Destroy(walls);
     }
 
+    //turns off george and prints YOU WIN
     public void Safe()
     {
         NPC.DeactivateGeorge();
         messageText.text = "YOU WIN";
     }
 
+    //turns off george and prints YOU LOSE
     public void Caught()
     {
         NPC.DeactivateGeorge();

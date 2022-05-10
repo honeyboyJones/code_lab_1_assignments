@@ -6,6 +6,7 @@ using Pathfinding;
 
 public class NPCController : MonoBehaviour
 {
+    //references
     GameObject player;
 
     //public GameObject nameCanvas;
@@ -15,7 +16,6 @@ public class NPCController : MonoBehaviour
     Path path;
     CharacterController controller;
 
-    
     public AudioClip chaseSound;
     public AudioSource chaseSource;
 
@@ -27,25 +27,29 @@ public class NPCController : MonoBehaviour
     //called before the first frame update
     void Start()
     {
+        //finds the player, seeker, and character controller for george
         player = GameObject.Find("Player");
 
         seeker = GetComponent<Seeker>();
         controller = GetComponent<CharacterController>();
     }
 
+    //sets george on the path toward the player, starts playing chase audio
     public void ActivateGeorge()
     {
         seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
         PlayChaseSound();
     }
 
+    //stops george's movement, stops chase audio
     public void DeactivateGeorge()
     {
         speed = 0f;
-        print("YOU WIN");
+        //print("YOU WIN");
         chaseSource.Stop();
     }
 
+    //if the chase audio isn't playing, play the audio clip when called
     void PlayChaseSound()
     {
         chaseSource.clip = chaseSound;
@@ -67,6 +71,8 @@ public class NPCController : MonoBehaviour
 
         //nameCanvas.transform.forward = Camera.main.transform.forward;
 
+        //if there is no path, return
+        //this is taken from the A* video, still learning about its function
         if(path == null)
         {
             return;
@@ -91,7 +97,7 @@ public class NPCController : MonoBehaviour
         float speedSmooth;
         if(reachedEnd)
         {
-            speedSmooth = Mathf.Sqrt(distanceToWayPoint / nextDistance);
+            speedSmooth = Mathf.Sqrt(distanceToWayPoint / nextDistance); //square root != squirt
         }
         else speedSmooth = 1;
 
@@ -110,6 +116,7 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    //if george collides with the player, run Caught()
     void OnCollisionEnter(Collision player)
     {
         MuseumManager.instance.Caught();
